@@ -23,7 +23,13 @@ class AnuncioController extends Controller
 
     public function show(string $id): mixed
     {
-        return Anuncio::find($id);
+        $anuncio = Anuncio::find($id);
+        
+        if (!$anuncio) {
+            return response()->json(['message' => 'Anuncio not found'], 404);
+        }
+        
+        return $anuncio;
     }
 
     public function store(Request $request): mixed

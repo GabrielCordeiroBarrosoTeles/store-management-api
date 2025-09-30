@@ -1,0 +1,50 @@
+get:
+  tags: [Usuarios]
+  summary: Todos os usuários
+  description: Buscar todos os usuários do sistema
+  responses:
+    200: 
+      description: Array de Usuários
+      content:
+        "application/json": 
+          schema:
+            type: array
+            items:
+              $ref: '../../components/Usuario.yaml'
+    
+post:
+  tags: [Usuarios]
+  summary: Cadastra um usuário
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+              example: operador1
+            senha:
+              type: string
+              example: senha123
+            cargo:
+              type: string
+              enum: [adm, operador, cliente]
+              example: operador
+  responses:
+    201:
+      description: Usuário cadastrado com sucesso
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Usuario.yaml'
+    400:
+      description: Dados Inválidos
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Login já existe"

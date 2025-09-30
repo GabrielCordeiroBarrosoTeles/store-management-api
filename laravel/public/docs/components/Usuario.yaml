@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: integer
+    example: 1
+  login:
+    type: string
+    example: admin
+  senha:
+    type: string
+    example: $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+  cargo:
+    type: string
+    enum: [adm, operador, cliente]
+    example: adm

@@ -1,0 +1,66 @@
+get:
+  tags: [Usuarios]
+  summary: Buscar um usuário
+  description: Buscar usuário por ID
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do usuário
+  responses:
+    200:
+      description: Usuário encontrado
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Usuario.yaml'
+    404:
+      description: Usuário não encontrado
+
+put:
+  tags: [Usuarios]
+  summary: Atualizar usuário
+  description: Atualizar dados do usuário
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do usuário
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          type: object
+          properties:
+            login:
+              type: string
+            senha:
+              type: string
+            cargo:
+              type: string
+              enum: [adm, operador, cliente]
+  responses:
+    200:
+      description: Usuário atualizado com sucesso
+
+delete:
+  tags: [Usuarios]
+  summary: Deletar usuário
+  description: Remover usuário do sistema
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do usuário
+  responses:
+    204:
+      description: Usuário deletado com sucesso

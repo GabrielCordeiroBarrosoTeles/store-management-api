@@ -1,0 +1,78 @@
+get:
+  tags: [Estoques]
+  summary: Buscar um produto
+  description: Buscar produto por ID
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do produto
+  responses:
+    200:
+      description: Produto encontrado
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Estoque.yaml'
+    404:
+      description: Produto não encontrado
+
+put:
+  tags: [Estoques]
+  summary: Atualizar produto
+  description: Atualizar dados do produto
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do produto
+  requestBody:
+    content:
+      "multipart/form-data":
+        schema:
+          type: object
+          properties:
+            nome:
+              type: string
+            funcao:
+              type: string
+            detalhe:
+              type: string
+            valorcompra:
+              type: number
+            valorvenda:
+              type: number
+            quantidade:
+              type: integer
+            marca:
+              type: string
+            peso:
+              type: string
+            imagem:
+              type: string
+              format: binary
+  responses:
+    200:
+      description: Produto atualizado com sucesso
+
+delete:
+  tags: [Estoques]
+  summary: Deletar produto
+  description: Remover produto do estoque
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do produto
+  responses:
+    204:
+      description: Produto deletado com sucesso

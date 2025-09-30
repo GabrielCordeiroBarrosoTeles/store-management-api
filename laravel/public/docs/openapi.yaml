@@ -1,22 +1,33 @@
 openapi: 3.1.1
 info:
-  title: API do sistema de classificados
-  description: Uma api de teste
-  version: 0.0.1
+  title: API do Sistema de Casa de Ração
+  description: API para gerenciamento de casa de ração - clientes, estoque e usuários
+  version: 1.0.0
 
 tags:
-  - Anuncios
-  - Anunciantes
-  - Categorias
-
+  - Clientes
+  - Estoques
+  - Usuarios
 
 paths:
-  /api/anuncios:
-    $ref: './paths/Anuncio/Collection.yaml'
-  /api/anuncios/{id}:
-    $ref: './paths/Anuncio/Item.yaml'
+  /api/clientes:
+    $ref: './paths/Cliente/Collection.yaml'
+  /api/clientes/{id}:
+    $ref: './paths/Cliente/Item.yaml'
+  /api/estoques:
+    $ref: './paths/Estoque/Collection.yaml'
+  /api/estoques/{id}:
+    $ref: './paths/Estoque/Item.yaml'
+  /api/usuarios:
+    $ref: './paths/Usuario/Collection.yaml'
+  /api/usuarios/{id}:
+    $ref: './paths/Usuario/Item.yaml'
 
 components:
   schemas:
-    Anuncio:
-      $ref: './components/Anuncio.yaml'
+    Cliente:
+      $ref: './components/Cliente.yaml'
+    Estoque:
+      $ref: './components/Estoque.yaml'
+    Usuario:
+      $ref: './components/Usuario.yaml'
