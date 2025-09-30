@@ -1,0 +1,59 @@
+get:
+  tags: [Estoques]
+  summary: Todos os produtos do estoque
+  description: Buscar todos os produtos em estoque
+  responses:
+    200: 
+      description: Array de Produtos
+      content:
+        "application/json": 
+          schema:
+            type: array
+            items:
+              $ref: '../../components/Estoque.yaml'
+    
+post:
+  tags: [Estoques]
+  summary: Cadastra um produto no estoque
+  requestBody:
+    content:
+      "multipart/form-data":
+        schema:
+          type: object
+          properties:
+            nome:
+              type: string
+              example: Ração Premium
+            funcao:
+              type: string
+              example: Ração
+            detalhe:
+              type: string
+              example: Ração completa para cães
+            valorcompra:
+              type: number
+              example: 45.50
+            valorvenda:
+              type: number
+              example: 65.90
+            quantidade:
+              type: integer
+              example: 100
+            marca:
+              type: string
+              example: Premier
+            peso:
+              type: string
+              example: 15kg
+            imagem:
+              type: string
+              format: binary
+  responses:
+    201:
+      description: Produto cadastrado com sucesso
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Estoque.yaml'
+    400:
+      description: Dados Inválidos

@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
             QuantitySeeder::class,
             UserSeeder::class,
             AnuncioSeeder::class,
+            ClienteSeeder::class,
+            EstoqueSeeder::class,
+            UsuarioSeeder::class,
         ]);
     }
 }

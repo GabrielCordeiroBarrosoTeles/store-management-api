@@ -1,0 +1,39 @@
+get:
+  tags: [Clientes]
+  summary: Todos os clientes
+  description: Buscar todos os clientes cadastrados
+  responses:
+    200: 
+      description: Array de Clientes
+      content:
+        "application/json": 
+          schema:
+            type: array
+            items:
+              $ref: '../../components/Cliente.yaml'
+    
+post:
+  tags: [Clientes]
+  summary: Cadastra um cliente
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          $ref: '../../components/Cliente.yaml'
+  responses:
+    201:
+      description: Cliente cadastrado com sucesso
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Cliente.yaml'
+    400:
+      description: Dados Inválidos
+      content:
+        "application/json":
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "CPF já cadastrado"

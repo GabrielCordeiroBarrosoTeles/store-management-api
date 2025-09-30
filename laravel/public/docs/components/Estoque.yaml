@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    type: integer
+    example: 1
+  nome:
+    type: string
+    example: Ração Premium Cães Adultos
+  funcao:
+    type: string
+    example: Ração
+  detalhe:
+    type: string
+    example: Ração completa para cães adultos
+  valorcompra:
+    type: number
+    format: float
+    example: 45.50
+  valorvenda:
+    type: number
+    format: float
+    example: 65.90
+  quantidade:
+    type: integer
+    example: 100
+  marca:
+    type: string
+    example: Premier
+  peso:
+    type: string
+    example: 15kg
+  imagem:
+    type: string
+    example: racao_premier.jpg
+  vendido:
+    type: integer
+    example: 25

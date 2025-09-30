@@ -1,0 +1,64 @@
+get:
+  tags: [Clientes]
+  summary: Buscar um cliente
+  description: Buscar cliente por ID
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do cliente
+  responses:
+    200:
+      description: Cliente encontrado
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Cliente.yaml'
+    404:
+      description: Cliente não encontrado
+
+put:
+  tags: [Clientes]
+  summary: Atualizar cliente
+  description: Atualizar dados do cliente
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do cliente
+  requestBody:
+    content:
+      "application/json":
+        schema:
+          $ref: '../../components/Cliente.yaml'
+  responses:
+    200:
+      description: Cliente atualizado com sucesso
+      content:
+        "application/json":
+          schema:
+            $ref: '../../components/Cliente.yaml'
+
+delete:
+  tags: [Clientes]
+  summary: Deletar cliente
+  description: Remover cliente do sistema
+  parameters:
+  - name: id
+    in: path
+    schema:
+      type: integer
+      example: 1
+    required: true
+    description: ID do cliente
+  responses:
+    204:
+      description: Cliente deletado com sucesso
+    404:
+      description: Cliente não encontrado

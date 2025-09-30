@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: integer
+    example: 1
+  nome:
+    type: string
+    example: Raimundinha Zero Bala
+  cpf:
+    type: string
+    example: 123.456.789-00
+  email:
+    type: string
+    example: raimundinha@email.com
+  telefone:
+    type: string
+    example: (85) 99999-9999
